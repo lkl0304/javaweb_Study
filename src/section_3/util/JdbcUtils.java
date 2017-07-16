@@ -1,10 +1,11 @@
-package section_2.jdbc.test.util;
+package section_3.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
 
 public class JdbcUtils {
 	public static Connection getConnect()
@@ -28,12 +29,12 @@ public class JdbcUtils {
 		return con;
 	}
 	
-	public static void myclose(Statement pre, Connection con){
+	public static void myclose(Statement stmt, Connection con){
 		
 		try {
-			if (pre != null) {
-				pre.close();
-				pre = null;
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
 			}
 			if (con != null) {
 				con.close();
@@ -45,7 +46,7 @@ public class JdbcUtils {
 		}
 		
 	}
-	public static void myclose(Statement pre, Connection con, ResultSet res){
+	public static void myclose(Statement stmt, Connection con, ResultSet res){
 		if (res != null) {
 			try {
 				res.close();
@@ -55,6 +56,6 @@ public class JdbcUtils {
 			}
 			res = null;
 		}
-		myclose(pre, con);
+		myclose(stmt, con);
 	}
 }
