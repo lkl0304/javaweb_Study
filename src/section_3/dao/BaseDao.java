@@ -61,7 +61,7 @@ public class BaseDao {
 		qRunner = new QueryRunner(dSource);
 		String sql = "select * from user ";
 		if (str.length > 0) {
-			sql = sql + "where " + str[0];
+			sql = sql + "where " + str[0]; // 不安全。。。 只是测试
 		}
 		try {
 			List<User> list = qRunner.query(sql, new BeanListHandler<>(User.class));
