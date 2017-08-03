@@ -6,12 +6,12 @@ import java.util.*;
 
 import javax.sql.DataSource;
 //import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
+
 import org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory;
 
 public class DbcpSql {
-	// DBCP Êı¾İÔ´ Á¬½Ó³Ø
+	// DBCP æ•°æ®åº“è¿æ¥æ± 
 	public static DataSource bd = null;
-	//·½·¨Ò»£º Ö±½ÓÁ¬½Ó
 //	static {
 //		BasicDataSource bds = new BasicDataSource();
 //		bds.setDriverClassName("com.mysql.jdbc.Driver");
@@ -24,7 +24,7 @@ public class DbcpSql {
 //		DbcpSql.bd = bds;
 //	}
 	
-	// ·½·¨¶ş£º¹¤³§Àà¶ÁÈ¡ÅäÖÃÎÄ¼ş
+	// é€šè¿‡å·¥å‚ç±»é…ç½®è¿æ¥æº
 	static{
 		Properties pps = new Properties();
 		String path = "dbcpconfig.properties";
@@ -34,9 +34,9 @@ public class DbcpSql {
 			pps.load(in);
 			DbcpSql.bd = BasicDataSourceFactory.createDataSource(pps);
 		} catch (IOException e) {
-			System.err.println("ÎÄ¼ş¶ÁÈ¡Ê§°Ü£¡");
+			System.err.println("æ²¡æœ‰å‘ç°æ–‡ä»¶");
 		} catch (Exception e) {
-			System.err.println("¼ÓÔØÅäÖÃÊ§°Ü£¡");
+			System.err.println("è¿æ¥æºåˆ›å»ºå¤±è´¥");
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class DbcpSql {
 		ResultSet rSet = pStatement.executeQuery();
 		
 		while (rSet.next()){
-			System.out.println("Êı¾İ´òÓ¡  name: " + rSet.getString("name") + " money: " + rSet.getFloat("money"));
+			System.out.println("name: " + rSet.getString("name") + " money: " + rSet.getFloat("money"));
 		}
 	}
 }

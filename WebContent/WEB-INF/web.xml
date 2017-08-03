@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <servlet>
+    <servlet-name>OneServlet</servlet-name>
+    <servlet-class>section_4.Servlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OneServlet</servlet-name>
+    <url-pattern>/one</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>OneFilter</filter-name>
+    <filter-class>section_4.Filter1</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>OneFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>FORWARD</dispatcher> <!-- 不加就全部都过滤   加就过滤对应的 -->
+  </filter-mapping>
+  
+  <listener>
+      <listener-class>
+          section_5.MyListener
+      </listener-class>
+  </listener>
+
+  <!-- 文件的上传下载 -->
+   <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>cn.upload.ServletFile</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Down</servlet-name>
+    <servlet-class>cn.upload.ServletDown</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Down</servlet-name>
+    <url-pattern>/down</url-pattern>
+  </servlet-mapping>
+  
+  
   <display-name>java_web_st</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

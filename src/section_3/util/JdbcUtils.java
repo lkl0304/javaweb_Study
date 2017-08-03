@@ -19,10 +19,10 @@ public class JdbcUtils {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException e) {
-			System.err.println("驱动加载失败！");
+			System.err.println("驱动加载失败");
 			e.printStackTrace();
 		} catch (SQLException e) {
-			System.err.println("数据库连接失败！");
+			System.err.println("数据库连接失败");
 			e.printStackTrace();
 		}
 		
